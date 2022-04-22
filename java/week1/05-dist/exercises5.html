@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>exercises5</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="exercise-set-5">Exercise set 5</h1>
+<ul>
+<li><p><strong>Rectangles</strong> (Rectangle.java).</p>
+<p>In this exercise, you will implement a class <em>Rectangle</em>, an instance of which describes a rectangle in a plane (where each of the corners has each coordinate equal to an integer).</p>
+<p>Implement the following methods:</p>
+<ul>
+<li><p><em>Rectangle( int xLowerLeft, int yLowerLeft, int width, int height )</em> - This constructor should accept the coordinates of the lower left-hand corner of the rectangle, the width, and the height of the rectangle. (Note that the width corresponds to the x-coordinate, and the height corresponds to the y-coordinate.)</p></li>
+<li><p><em>Rectangle( int xUpperRight, int yUpperRight )</em> - This constructor should accept the coordinates of the upper right-hand corner of the rectangle, and set the lower left-hand corner of the rectangle to be located at the origin, (0,0).</p></li>
+<li><p><em>public boolean containsPoint( int x, int y )</em> - This method should indicate whether or not the rectangle contains the given point.</p>
+<p>If the point lies on an edge of the rectangle or is a corner of the rectangle, the rectangle is considered to contain the point. For example, if the lower left-hand corner of a rectangle is at (0,0) and the upper right-hand corner of the rectangle is at (3,3), then the rectangle is considered to contain the points (0,0) and (0,1).</p></li>
+<li><p><em>public boolean containsRectangle( Rectangle r )</em> - This method should indicate whether or not the rectangle contains all points that are contained in the given <em>Rectangle</em> r.</p></li>
+<li><p><em>public String toString()</em> - This method should return a <em>String</em> containing the coordinates of the lower left-hand corner of the rectangle (in the format <em>(x,y)</em>), followed by a comma, a space, and then the coordinates of the upper right-hand corner of the rectangle. As an example, on the example rectangle given above, this method should return the <em>String</em> “(0,0), (3,3)”.</p></li>
+</ul></li>
+<li><p><strong>Squares</strong> (Square.java).</p>
+<p>After implementing the previous class, implement a class <em>Square</em> which <em>extends</em> the class <em>Rectangle</em>, and contains the following constructors, which should each be implemented by calling a constructor of <em>Rectangle</em>:</p>
+<ul>
+<li><p><em>Square( int xLowerLeft, int yLowerLeft, int sideLength )</em> - This constructor should accept the coordinates of the lower left-hand corner of the square, along with the length of a side of the square.</p></li>
+<li><p><em>Square( int sideLength )</em> - This constructor should accept the length of a side of the square whose lower left-hand corner is located at the origin, (0,0).</p></li>
+</ul></li>
+<li><p><strong>Chess Attack</strong> (Chess.java).</p>
+<p>In the given file <em>Chess.java</em>, there is an abstract class <em>ChessPiece</em>, and a number of classes that each extend <em>ChessPiece</em>. (For convenience, all of these classes have been placed into one file, under the class <em>Chess</em>.) Implement each of the <em>canAttack</em> methods (without changing anything else, except possibly the <em>main</em> method). For example, when k has type <em>King</em>, and p is a <em>ChessPiece</em>, <code>k.canAttack( p )</code> should return true or false depending on whether or not a King at the location given by k could directly attack a piece at the location given by p. (Please refer to Wikipedia, or another internet source, for information on how each of the pieces behave.)</p></li>
+<li><p><strong>Poker face</strong> (Hand.java).</p>
+<p><em>“Love game intuition, play the cards with spades to start<br />
+And after he’s been hooked, I’ll play the one that’s on his heart<br />
+…<br />
+Can’t read my, can’t read my<br />
+No, he can’t read my poker face.”</em></p>
+<p>– Lady Gaga, “Poker Face”</p>
+<p>Here, you are asked to write a class that can represent a poker hand, and evaluate whether or not each is a straight, flush, or a straight flush. (Note that prior knowledge of poker is not necessary to complete this exercise.)</p>
+<p><strong>Definitions</strong></p>
+<p>A hand here consists of 5 cards; each card is specified by a <em>value</em> (an int between 1 and 13, inclusive) and a <em>suit</em> (an int between 0 and 3, inclusive; 0 represents Clubs, 1 represents Diamonds, 2 represents Hearts, and 3 represents Spades).</p>
+<p>A hand is defined to be a straight if the values are—up to reordering—5 consecutive values. Precisely, it is meant that, a hand is a straight if the values can be ordered in a way such that:</p>
+<ul>
+<li>the values are equal to v, v+1, v+2, v+3, and v+4, where v is in the range 1 to 9 (inclusive), OR</li>
+<li>the values are equal to 10, 11, 12, 13, 1. That is, the ace value may be high or low.</li>
+</ul>
+<p>A hand is defined to be a flush if all of the suits are the same; and, it is defined to be a straight flush if it is both a straight and a flush.</p>
+<p>Observe that whether or not a hand is a straight, a flush, or a straight flush is not dependent on the order in which the cards of the hand are presented.</p>
+<p><strong>Your task</strong></p>
+<p>Implement the class Hand (whose skeleton is in the provided .java file) that has (at least) the following methods:</p>
+<ul>
+<li><p>A constructor which should receive a string containing 10 ints, which are assumed to consist of the value and the suit for 5 cards. Each card is presented one-by-one, so the first int is the value of the first card, the second int is the suit of the first card, the third int is the value of the second card, and so on, alternating between values and suits.</p></li>
+<li><p>A method String toString() which should print out the cards in a sequence, where two consecutive cards are separated by a comma and a space. Use the word Ace to represent the value 1, Jack to represent the value 11, Queen to represent the value 12, and King to represent the value 13. (See the example below.)</p></li>
+<li><p>A method String status() which should return “straight flush”, “straight”, “flush”, or “none” depending on the type of hand.</p></li>
+</ul>
+<p>As an example, the code fragment</p>
+<pre><code>Hand h = new Hand( &quot;1 1 2 1 3 1 4 1 5 1&quot; );
+System.out.println( h.toString());
+System.out.println( h.status());</code></pre>
+<p>should result in the following being printed out:</p>
+<pre><code>Ace of Diamonds, 2 of Diamonds, 3 of Diamonds, 4 of Diamonds, 5 of Diamonds
+straight flush</code></pre>
+<p><strong>Hints</strong></p>
+<ul>
+<li><p>You may wish to implement a class Card to help yourself. (This can be done in the same file; an example header is given, but is commented out. Please do not edit the header for the class Hand; in particular, keep Hand public.)</p></li>
+<li><p>Within the constructor for the Hand class, one way to parse the input String str is to declare and initialize a scanner:</p>
+<pre><code>Scanner in = new Scanner(str);</code></pre></li>
+</ul></li>
+</ul>
+</body>
+</html>

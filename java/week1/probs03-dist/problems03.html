@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>problems03</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p># Problem set 3</p>
+<ul>
+<li><p>Problem: <strong>Bounded queue</strong>. (Files: <code>BoundedQueue.java</code>, <code>QueueUser.java</code>.)</p>
+<p>In the given file called <code>BoundedQueue.java</code>, implement a queue class called <code>BoundedQueue</code>, where each instance is a queue that can hold a bounded number of <code>String</code> values. The main data structure of your class should be an instance of <code>ArrayList&lt;String&gt;</code>. The class should have push and pop methods which are synchronized. (These two methods should behave in a first-in first-out fashion; when the pop method is able to dequeue a string, it should dequeue the <em>oldest</em> string in the queue.) The methods should behave as follows:</p>
+<ul>
+<li><p>The constructor of this class should receive an int which specifies the maximum number of Strings that the queue can hold.</p></li>
+<li><p>The push method should first check if there are already the maximum number of elements in the queue; if so, the method should call <code>wait()</code> until the number of elements is strictly less than the maximum number. After that, it should push the argument of the method into the queue; print out <code>"Pushed: "</code> followed by the string that was just pushed, a slash, and the queue size; call <code>notifyAll()</code>; and then return.</p></li>
+<li><p>The pop method should first check if there is at least one element in the queue; if not, the method should call <code>wait()</code> until this holds. After that, it should pop a string from the queue; print out <code>"Popped: "</code> followed by the popped string, a slash, and the queue size; call <code>notifyAll()</code>; and then return.</p></li>
+</ul>
+<p>In the given file called <code>QueueUser.java</code>, implement 3 classes:</p>
+<ul>
+<li><p>A class <code>Pusher</code> which <code>implements Runnable</code>. The constructor of this class should receive an instance of <code>BoundedQueue</code>, a name, and a number <code>iterations</code>. The <code>run()</code> method of this class should call <code>push</code> on the given instance of <code>BoundedQueue</code> the specified number of times, with a loop having an index variable whose value varies from 1 to the number <code>iterations</code>; the argument passed to <code>push</code> should be a String which consists of the value of the index variable plus the name.</p></li>
+<li><p>A class <code>Popper</code> which <code>implements Runnable</code>. The constructor of this class should receive an instance of <code>BoundedQueue</code> and a number <code>iterations</code>. The <code>run()</code> method of this class should call <code>pop</code> on the given instance of <code>BoundedQueue</code> the specified number of times.</p></li>
+<li><p>A public class <code>QueueUser</code> with a <code>main</code> method that does the following. First, it creates a single instance of <code>BoundedQueue</code>, passing the value <code>2</code> to the constructor of <code>BoundedQueue</code>. Then, it creates two instances of the class <code>Pusher</code>, passing the constructor the instance of <code>BoundedQueue</code>, the names <code>a</code> and <code>b</code>, and the value <code>8</code> as the number of iterations. After this, it creates one instance of the class <code>Popper</code>, passing the constructor the instance of <code>BoundedQueue</code>, and the value <code>16</code> as the number of iterations. Finally, it creates 3 threads based on these 3 instances of <code>Pusher</code> and <code>Popper</code>, and starts these threads. (See the sample output below. You are of course free to experiment with different values and different numbers of threads, but please submit a main method that behaves as described.)</p></li>
+</ul>
+<p>Answer each of the following questions with an answer consisting of 1-2 sentences, placing each answer in a comment right after your student information in the file QueueUser.java:</p>
+<ul>
+<li><p>Q1: What is the difference in behavior if the code is modified so that the value <code>15</code> is passed to the constructor of the class <code>Popper</code>? Why?</p></li>
+<li><p>Q2: What is the difference in behavior if the code is modified so that the value <code>17</code> is passed to the constructor of the class <code>Popper</code>? Why?</p></li>
+<li><p>Q3: What potential difference in behavior is there if the code is modified so that the <code>push</code> method of the class <code>BoundedQueue</code> does not call <code>notifyAll()</code>? Why?</p></li>
+</ul>
+<p>Sample output:</p>
+<pre><code>  Pushed: 1 a / 1
+  Popped: 1 a / 0
+  Pushed: 2 a / 1
+  Pushed: 3 a / 2
+  Popped: 2 a / 1
+  Popped: 3 a / 0
+  Pushed: 4 a / 1
+  Popped: 4 a / 0
+  Pushed: 5 a / 1
+  Pushed: 6 a / 2
+  Popped: 5 a / 1
+  Popped: 6 a / 0
+  Pushed: 1 b / 1
+  Popped: 1 b / 0
+  Pushed: 2 b / 1
+  Pushed: 3 b / 2
+  Popped: 2 b / 1
+  Popped: 3 b / 0
+  Pushed: 4 b / 1
+  Popped: 4 b / 0
+  Pushed: 5 b / 1
+  Pushed: 6 b / 2
+  Popped: 5 b / 1
+  Popped: 6 b / 0
+  Pushed: 7 b / 1
+  Popped: 7 b / 0
+  Pushed: 8 b / 1
+  Pushed: 7 a / 2
+  Popped: 8 b / 1
+  Popped: 7 a / 0
+  Pushed: 8 a / 1
+  Popped: 8 a / 0</code></pre></li>
+</ul>
+</body>
+</html>
