@@ -1,0 +1,40 @@
+.basket-item{
+    display: flex;
+    flex-direction: row;
+   
+}
+.basket-item:not(:first-child){
+    border-top:1px solid #010000;
+    padding-top: 2rem;
+
+}
+.basket-item .title{
+    color: #010000;
+    font-size: medium;
+}
+.selected-card-details{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  
+}
+.selected-card-image{
+    height: 4rem;
+    align-self: center;
+    box-shadow: 2px 2px grey;
+
+}
+.basket-item .bin{
+    height: 1.5rem;
+    align-self: center;
+    margin-right: 0;;
+    position: absolute;
+    margin-left: 17%;
+}
+
+.basket-item .price{
+    display: flex;
+    margin-top: 0px;
+    flex-direction: row;
+    align-content: space-around;
+}

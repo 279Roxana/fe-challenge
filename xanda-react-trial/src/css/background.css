@@ -1,0 +1,25 @@
+.hero{
+    object-fit: cover;
+    width: 115rem;
+    max-height: 20rem;
+    filter: brightness(50%);
+}
+
+body{
+    background-color: black;
+}
+.background{
+    position: absolute;
+    opacity: 0.9;
+    z-index: 1;
+    margin: 0;
+}
+
+.logo{
+    padding-top: 15px;
+    position: absolute;
+    z-index: 1;
+    height: 2.5rem;
+    margin-top: 2rem;
+    margin-left: 5rem;
+}

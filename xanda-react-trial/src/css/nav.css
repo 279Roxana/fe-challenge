@@ -1,0 +1,21 @@
+.nav{
+    background-color: black;
+    height: 2vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+    margin-left: 3.5rem;
+}
+.nav-item img{
+    height: 0.8rem;
+}
+.nav-item label{
+    margin-left: 0.5rem;
+    font-size: small;
+}
+
+label{
+    padding: 3px;
+    color: white;
+}
